@@ -24,7 +24,7 @@ st.title("SplitMap Visualisation 💻")
 @st.cache_data
 def get_layers_dict():
     elevation = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Centrale/wms?",
+        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
         name="elevation",
         fmt="image/png",
         layers="elevation",
@@ -34,7 +34,7 @@ def get_layers_dict():
     )
 
     agb_2024 = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Centrale/wms?",
+        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
         name="agb_2024",
         fmt="image/png",
         layers="predicted_agbd_2024",
@@ -44,7 +44,7 @@ def get_layers_dict():
     )
 
     agb_2023 = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Centrale/wms?",
+        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
         name="agb_2023",
         fmt="image/png",
         layers="predicted_agbd_2023",
@@ -54,7 +54,7 @@ def get_layers_dict():
     )
 
     agb_2022 = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Centrale/wms?",
+        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
         name="agb_2022",
         fmt="image/png",
         layers="predicted_agbd_2022",
@@ -64,42 +64,21 @@ def get_layers_dict():
     )
 
     pente = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Terrain/wms?",
+        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
         name="pente",
         fmt="image/png",
-        layers="pente_13_ok",
+        layers="pente",
         transparent=True,
         overlay=True,
         control=True,
     )
 
-    ombrage = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Terrain/wms?",
-        name="ombrage_13",
-        fmt="image/png",
-        layers="ombrage_13",
-        transparent=True,
-        overlay=True,
-        control=True,
-    )
-
-    exposition_massif_forestier = WmsTileLayer(
-        url="http://localhost:8080/geoserver/Terrain/wms?",
-        name="exposition_massif_forestier",
-        fmt="image/png",
-        layers="exposition_massif_forestier",
-        transparent=True,
-        overlay=True,
-        control=True,
-    )
 
     return {
         "Elevation": elevation,
         "AGB 2022": agb_2022,
         "AGB 2023": agb_2023,
         "AGB 2024": agb_2024,
-        "exposition_massif_forestier": exposition_massif_forestier,
-        "ombrage_13": ombrage,
         "pente": pente
     }
 
@@ -133,7 +112,7 @@ m.split_map(
 )
 
 # Ajout de la légende pour le côté droit
-legend_url = f"http://localhost:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={right_layer}"
+legend_url = f"http://18.208.148.26:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={right_layer}"
 m.add_wms_legend(url=legend_url)
 
 m.to_streamlit(height=500)

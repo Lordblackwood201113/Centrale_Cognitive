@@ -55,13 +55,13 @@ m = leafmap.Map(
 # 📌 Ajout de la couche WMS sélectionnée
 selected_layer = wms_layers[selected_layer_name]
 m.add_wms_layer(
-    url="http://localhost:8080/geoserver/Centrale/wms?",
+    url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
     layers=selected_layer,
     name=selected_layer_name
 )
 
 # 📌 Ajout de la légende correspondante
-legend_url = f"http://localhost:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={selected_layer}"
+legend_url = f"http://18.208.148.26:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={selected_layer}"
 m.add_wms_legend(url=legend_url)
 
 # 📌 Affichage de la carte dans Streamlit
