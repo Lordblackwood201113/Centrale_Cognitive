@@ -29,7 +29,7 @@ st.title("Vectors visualisation 💻")
 
 # Définition des couches WMS
 massif_forestier_wms = WmsTileLayer(
-    url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+    url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
     name="massif forestier",
     fmt="image/png",
     layers="massif_forestier",
@@ -39,7 +39,7 @@ massif_forestier_wms = WmsTileLayer(
 )
 
 statistiques_de_zones_wms = WmsTileLayer(
-    url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+    url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
     name="statistiques de zones",
     fmt="image/png",
     layers="statistiques_de_zones",

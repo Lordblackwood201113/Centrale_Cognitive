@@ -24,7 +24,7 @@ st.title("SplitMap Visualisation 💻")
 @st.cache_data
 def get_layers_dict():
     elevation = WmsTileLayer(
-        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+        url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
         name="elevation",
         fmt="image/png",
         layers="elevation",
@@ -34,7 +34,7 @@ def get_layers_dict():
     )
 
     agb_2024 = WmsTileLayer(
-        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+        url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
         name="agb_2024",
         fmt="image/png",
         layers="predicted_agbd_2024",
@@ -44,7 +44,7 @@ def get_layers_dict():
     )
 
     agb_2023 = WmsTileLayer(
-        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+        url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
         name="agb_2023",
         fmt="image/png",
         layers="predicted_agbd_2023",
@@ -54,7 +54,7 @@ def get_layers_dict():
     )
 
     agb_2022 = WmsTileLayer(
-        url="http://18.208.148.26:8080/geoserver/Centrale/wms?",
+        url="http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?",
         name="agb_2022",
         fmt="image/png",
         layers="predicted_agbd_2022",
@@ -112,7 +112,7 @@ m.split_map(
 )
 
 # Ajout de la légende pour le côté droit
-legend_url = f"http://18.208.148.26:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={right_layer}"
+legend_url = f"http://ec2-44-203-136-241.compute-1.amazonaws.com:8080/geoserver/Centrale/wms?REQUEST=GetLegendGraphic&FORMAT=image/png&LAYER={right_layer}"
 m.add_wms_legend(url=legend_url)
 
 m.to_streamlit(height=500)
